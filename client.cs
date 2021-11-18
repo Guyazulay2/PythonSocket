@@ -57,7 +57,7 @@ static string GetMessage(TcpClient client, String message)
 
       public static void Main ()
         {
-            string server = "127.0.0.1";
+            string server = "44.199.203.38";
             var port = 5600;
             
             int count = 0 ;
@@ -70,9 +70,10 @@ static string GetMessage(TcpClient client, String message)
                     var ret_message = GetMessage(client,message);
                     Console.WriteLine(ret_message);
                 }       
-                Thread.Sleep(500);
+                Thread.Sleep(1000);
             }            
         }
     }
 }
+
 
