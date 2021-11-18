@@ -16,19 +16,15 @@ class SingleTCPHandler(socketserver.BaseRequestHandler):
             j = json.load(f)
             datatosend = json.dumps(j)
 
-            
         self.request.send(bytes(datatosend, 'UTF-8'))
         self.request.close()
 
-        
 class SimpleServer(socketserver.ThreadingMixIn, socketserver.TCPServer):
     daemon_threads = True
     allow_reuse_address = True
 
     def __init__(self, server_address, RequestHandlerClass):
         socketserver.TCPServer.__init__(self, server_address, RequestHandlerClass)
-
-
 
 if __name__ == "__main__":
     server = SimpleServer((HOST, PORT), SingleTCPHandler)
